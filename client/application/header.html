@@ -1,0 +1,19 @@
+<template name="header">
+  <nav class="indigo">
+    <div class="nav-wrapper container" role="navigation">
+      <ul id="nav-mobile" class="left">
+        <li class="active"><a href="{{pathFor 'phonesList'}}">Phonelist</a></li>
+        <li>
+          <form>
+            <div class="input-field">
+              <input id="search" type="search" required>
+              <label for="search"><i class="mdi-action-search"></i></label>
+              <i class="mdi-navigation-close"></i>
+            </div>
+          </form>
+        </li>
+        <li><a href="{{pathFor 'phoneSubmit'}}">Add</a></li>
+      </ul>
+    </div>
+  </nav>
+</template>
