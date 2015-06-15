@@ -1,3 +1,15 @@
+Template.phoneSubmit.onCreated(function() {
+  Session.set('phoneSubmitErrors', {});
+});
+Template.phoneSubmit.helpers({
+  errorMessage: function(field) {
+    return Session.get('phoneSubmitErrors')[field];
+  },
+  errorClass: function (field) {
+    return !!Session.get('phoneSubmitErrors')[field] ? 'red darken-1' : '';
+  }
+});
+
 Template.phoneSubmit.events({
   'submit form': function(e) {
     e.preventDefault();
@@ -8,6 +20,10 @@ Template.phoneSubmit.events({
       phoneNumber: $(e.target).find('[name=phoneNumber]').val(),
       title: $(e.target).find('[name=title]').val()
     };
+
+    var errors = validatePhone(phone);
+    if (errors.name || errors.title || errors.email || errors.phoneNumber)
+      return Session.set('phoneSubmitErrors', errors);
 
     Meteor.call('phoneInsert', phone, function(error, result) {
       // display the error to the user and abort
