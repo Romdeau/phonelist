@@ -1,0 +1,31 @@
+<template name="phoneEdit">
+  <form class="main form page">
+    <div class="form-group">
+      <label class="control-label" for="name">Name</label>
+      <div class="controls">
+          <input name="name" id="name" type="text" value="{{name}}" placeholder="Your Name" class="form-control"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="title">Title</label>
+      <div class="controls">
+          <input name="title" id="title" type="text" value="{{title}}" placeholder="Your Title" class="form-control"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="phoneNumber">Phone Number</label>
+      <div class="controls">
+          <input name="phoneNumber" id="phoneNumber" type="text" value="{{phoneNumber}}" placeholder="Your Phone Number" class="form-control"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="email">Email</label>
+      <div class="controls">
+          <input name="email" id="email" type="text" value="{{email}}" placeholder="Your Email Address" class="form-control"/>
+      </div>
+    </div>
+    <input type="submit" value="Submit" class="btn btn-primary"/>
+    <hr/>
+    <a class="btn red delete" href="#">Delete Phone</a>
+  </form>
+</template>

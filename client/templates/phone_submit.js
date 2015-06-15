@@ -12,7 +12,15 @@ Template.phoneSubmit.events({
     Meteor.call('phoneInsert', phone, function(error, result) {
       // display the error to the user and abort
       if (error)
-        return alert(error.reason);
+        return throwError(error.reason);
+
+        // route to existing phone
+        if (result.phoneExists)
+         throwError('This phone has already been posted');
+        // route to existing person
+        if (result.personExists)
+          throwError('This person has already been posted');
+
       Router.go('phonePage', {_id: result._id});
     });
   }
