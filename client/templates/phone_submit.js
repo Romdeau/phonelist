@@ -13,7 +13,7 @@ Template.phoneSubmit.events({
       // display the error to the user and abort
       if (error)
         return alert(error.reason);
-      Router.go('phonePage', {_id: result._id});  
+      Router.go('phonePage', {_id: result._id});
     });
   }
 });
